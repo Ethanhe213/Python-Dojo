@@ -1,73 +1,51 @@
-class User:
-
-    def __init__(self, first_name, last_name, email, age):
-
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.age = age
-        self.is_rewards_member = False
-        self.gold_card_points = 0
-
-    # Methods:
-    # display_info(self) - Have this method print all 
-    # of the users' details on separate lines.
-
-    def display_info(self):
-        print("==========================")
-        print(f"First name: {self.first_name}")
-        print(f"Last name: {self.last_name}")
-        print(f"Email: {self.email}")
-        print(f"Age: {self.age}")
-        print(f"Member: {self.is_rewards_member}")
-        print(f"Current Points: {self.gold_card_points}")
-        print("==========================")
-
-    def enroll(self):
-
-        # NINJA BONUS
-        # Add logic in the enroll method to check if 
-        # they are a member already, and if they are, 
-        # print "User already a member." and return False, otherwise return True.
-
-        # REGULAR STUFF
-
-        # Have this method change the user's member
-        # status to True and 
-        self.is_rewards_member = True
-
-        # set their gold card points to 200.
-        #######   You can do it!
-
-
-    
-    
-    def spend_points(self, amount):
-
-        # Add logic in the spend points method
-        # to be sure they have enough points to 
-        # spend that amount and handle appropriately.
-        
-        # PSEUDO CODE FOR NINJA BONUS
-        # if they don't have enough points:
-            # print to the console -- "You don't have enough points."
-            # then return # exit function!
-
-        # decrease the user's points by the amount specified.
-        self.gold_card_points
-        # .... this line is incomplete .. how do set this to a new value?
-
+# Player class with updated constructor
+class Player:
+    def __init__(self, data):
+        self.name = data['name']
+        self.age = data['age']
+        self.position = data['position']
+        self.team = data['team']
     
 
-    # Ninja Bonuses:
+    # * NINJA BONUS class mehotd
+    @classmethod
+    def add_players(cls, data):
+        player_objects = []
+        for dict in data:
+            player_objects.append(cls(dict))
+        return player_objects
+    
+    # Not required for the assignment but useful
+    # __repr__(self) is a python system method that 
+    # tells python how to handle representing that class 
+    # when, for example the object is printed to the terminal.
+    def __repr__(self):
+        display = f"Player: {self.name}, {self.age} y/o, pos: {self.position}, team: {self.team}"
+        return display
 
 
-
-my_user = User("Sadie", "Flick", "sflick@codingdojo.com", 99)
-Richard=User('Richard','Paulus','rcdfa@gmail.com',21)
-my_user.display_info()
-my_user.enroll()
-my_user.display_info()
-my_user.spend_points(100)
-my_user.display_info()
-
+kevin = {
+        "name": "Kevin Durant", 
+        "age":34, 
+        "position": "small forward", 
+        "team": "Brooklyn Nets"
+}
+jason = {
+        "name": "Jason Tatum", 
+        "age":24, 
+        "position": "small forward", 
+        "team": "Boston Celtics"
+}
+kyrie = {
+        "name": "Kyrie Irving", 
+        "age":32, "position": "Point Guard", 
+        "team": "Brooklyn Nets"
+}
+    
+# Create your Player instances here!
+player_jason = Player(jason)
+player_kevin = Player(kevin)
+player_kyrie = Player(kyrie)
+print(player_jason)
+print(player_kevin)
+print(player_kyrie)

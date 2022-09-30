@@ -16,7 +16,7 @@ class BankAccount:
         return self
         # your code here
     def display_account_info(self):
-        print(self.balance)
+        print("Balance:",self.balance)
         return self
         # your code here
     def yield_interest(self):
@@ -31,8 +31,7 @@ class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
-        self.account = BankAccount(int_rate=0.02, balance=0)
-    
+        self.account = [BankAccount(0.05,5000),BankAccount(0.05,10000)]
     # other methods
     
     def make_deposit(self, amount):
@@ -42,7 +41,8 @@ class User:
     def display_user_balance(self):
         self.account.display_account_info()
     def user_allaccounts(self):
-        self.account.showall()
+        for account in self.account:
+            print(account.showall())
 
 
 account1=BankAccount(0.05,5000)
@@ -51,4 +51,3 @@ account1.deposit(50).deposit(70).deposit(200).withdraw(100).yield_interest().dis
 account2.deposit(550).deposit(200).withdraw(13).withdraw(520).withdraw(100).withdraw(70).yield_interest().display_account_info() 
 BankAccount.showall() 
 Juan=User('Juan','juansdaf@gamil.com')
-Juan.user_allaccounts()
