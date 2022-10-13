@@ -1,0 +1,24 @@
+Query: Create 3 new dojos
+INSERT INTO dojos(name)VALUES('John'),('Sam'),('Steve');
+
+Query: Delete the 3 dojos you just created
+DELETE FROM dojos	
+
+Query: Create 3 ninjas that belong to the first,second, and third dojo
+INSERT INTO ninjas(first_name,last_name,age,dojo_ID)VALUES('Juan','Avila',20,1),('Joseph','Paulus',30,1),('Semantha','Lanuz',24,1),
+('Miguel','Batista',23,2),('Jose','Campos',32,2),('Paula','Sierra',29,2),('Grace','Dorado',27,3),('Augustin','Perez',24,3),('Matias','Cielos',21,3)
+
+Query: Retrieve all the ninjas from the first dojo
+SELECT * FROM dojos
+JOIN ninjas ON dojo_ID=dojos.ID
+WHERE dojos.ID=1;
+
+Query: Retrieve all the ninjas from the last dojo
+SELECT * FROM dojos
+JOIN ninjas ON dojo_ID=dojos.ID
+WHERE dojos.ID=3;
+
+Query: Retrieve the last ninja's dojo
+SELECT * FROM ninjas
+JOIN dojos ON dojos.ID=ninjas.dojo_ID
+WHERE ninjas.ID=9;

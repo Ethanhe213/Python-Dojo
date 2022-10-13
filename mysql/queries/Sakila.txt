@@ -1,0 +1,20 @@
+1. What query would you run to
+get all the customers inside
+city_id = 312? Your query
+should return customer first
+name, last name, email, and
+address. 
+
+SELECT first_name, last_name,email,address.address,address.address2,city.city,country.country
+FROM customer
+LEFT JOIN address on address.address_id=customer.address_id
+LEFT JOIN city on city.city_id=address.city_id
+LEFT JOIN country on city.country_id=country.country_id
+WHERE city.city_id=31
+
+2. What query would you run to
+get all comedy films? Your
+query should return film title,
+description, release year,
+rating, special features, and
+genre (category). 
